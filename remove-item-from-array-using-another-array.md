@@ -54,4 +54,15 @@ console.log(result);
   { ID: 3, StringValue: 'extra', Color: 'black', Order: 'low' },       
   { ID: 4, StringValue: 'options', Color: 'grey', Order: 'high' }      
 ]*/
+
+
+var result = allCodes.filter((code) =>
+  balanceCodes.every((balanceCode) => balanceCode.ID !== code.ID));
+  
+ /*
+[
+  { ID: 3, StringValue: 'extra', Color: 'black', Order: 'low' },       
+  { ID: 4, StringValue: 'options', Color: 'grey', Order: 'high' }      
+]*/
+
 ```
