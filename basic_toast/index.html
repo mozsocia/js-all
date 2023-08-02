@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Toaster Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css" rel="stylesheet">
+
+  <style>
+    .colored-toast.swal2-icon-success {
+      background-color: #a5dc86 !important;
+    }
+
+    .colored-toast.swal2-icon-error {
+      background-color: #f27474 !important;
+    }
+
+    .colored-toast.swal2-icon-warning {
+      background-color: #f8bb86 !important;
+    }
+
+    .colored-toast.swal2-icon-info {
+      background-color: #3fc3ee !important;
+    }
+
+    .colored-toast.swal2-icon-question {
+      background-color: #87adbd !important;
+    }
+
+    .colored-toast .swal2-title {
+      color: white;
+    }
+
+    .colored-toast .swal2-close {
+      color: white;
+    }
+
+    .colored-toast .swal2-html-container {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="showToasterButton">Show Toaster</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
+  <script>
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-right',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast'
+      },
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true
+    })
+
+    // Wait for the DOM to be fully loaded before binding event handlers
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get the button element by ID
+      var showToasterButton = document.getElementById('showToasterButton');
+
+
+
+      // Attach a click event handler to the button
+      showToasterButton.addEventListener('click', function () {
+        showToast('This is a toaster message!', 'info'); // You can change the color here
+      });
+    });
+
+    function showToast(message, iconType) {
+
+
+      Toast.fire({
+        icon: 'success',
+        title: 'Success'
+      })
+      Toast.fire({
+        icon: 'error',
+        title: 'Error'
+      })
+      Toast.fire({
+        icon: 'warning',
+        title: 'Warning'
+      })
+      Toast.fire({
+        icon: 'info',
+        title: 'Info'
+      })
+      Toast.fire({
+        icon: 'question',
+        title: message
+      })
+    }
+
+
+  </script>
+</body>
+
+</html>
