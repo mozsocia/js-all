@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<style>
+    label.error { color: red; }
+</style>
+</head>
+<body>
+
+<form id="myForm">
+    <label for="customer_name">Customer Name:</label><br>
+    <input type="text" name="customer_name" id="customer_name"><br>
+    <label for="phone_number">Phone Number:</label><br>
+    <input type="text" name="phone_number" id="phone_number"><br>
+    <label for="delivery_address">Delivery Address:</label><br>
+    <textarea name="delivery_address" id="delivery_address"></textarea><br>
+    
+    <label>
+        <input type="radio" name="delivery_location" value="home"> Home
+    </label>
+    <label>
+        <input type="radio" name="delivery_location" value="office"> Office
+    </label><br>
+    
+    <label>
+        <input type="radio" name="quantity" value="1"> 1
+    </label>
+    <label>
+        <input type="radio" name="quantity" value="2"> 2
+    </label><br>
+    
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    $(document).ready(function(){
+        $('#myForm').validate({
+            rules: {
+                customer_name: {
+                    required: true
+                },
+                phone_number: {
+                    required: true,
+                    digits: true // optional: validate as digits
+                },
+                delivery_address: {
+                    required: true
+                },
+                delivery_location: {
+                    required: true
+                },
+                quantity: {
+                    required: true
+                }
+            },
+            messages: {
+                customer_name: {
+                    required: "Please enter customer name."
+                },
+                phone_number: {
+                    required: "Please enter phone number.",
+                    digits: "Please enter a valid phone number."
+                },
+                delivery_address: {
+                    required: "Please enter delivery address."
+                },
+                delivery_location: {
+                    required: "Please select delivery location."
+                },
+                quantity: {
+                    required: "Please select quantity."
+                }
+            },
+            onfocusout: function(element) {
+                $(element).valid();
+            },
+            submitHandler: function(form) {
+                // If the form is valid, you can do something here, like AJAX submission
+                form.submit();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

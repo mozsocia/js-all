@@ -52,6 +52,7 @@
     .filepond--panel-root {
         background-color: var(--bs-body-bg) !important;
     }
+
     .filepond--drop-label {
         border: 1px solid var(--bs-border-color) !important;
 
@@ -140,9 +141,9 @@
 
 
     <script>
-        var genericExamples = document.querySelectorAll('[data-trigger-choice]');
-        for (i = 0; i < genericExamples.length; ++i) {
-            var element = genericExamples[i];
+        var choiceElements = document.querySelectorAll('[data-trigger-choice]');
+        for (i = 0; i < choiceElements.length; ++i) {
+            var element = choiceElements[i];
             new Choices(element, {
                 allowHTML: true,
                 placeholderValue: 'This is a placeholder set in the config',
@@ -158,9 +159,12 @@
             FilePondPluginImagePreview
         );
         // for product images upload
-        const MultipleElement1 = document.querySelector('.upload-image');
-        const MultipleElement = document.querySelector('input[type="file"]');
-        FilePond.create(MultipleElement1,);
+
+        const MultipleElements = document.querySelectorAll('.upload-image');
+
+        MultipleElements.forEach(element => {
+            FilePond.create(element);
+        });
     </script>
 </body>
 
