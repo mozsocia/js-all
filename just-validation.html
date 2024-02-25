@@ -41,7 +41,13 @@
   </form>
 
   <script>
-    const validator = new JustValidate('#basic_form');
+    document.addEventListener("DOMContentLoaded", function() {
+    // Your code here
+    const validator = new JustValidate('#basic_form', {
+      // globalConfig: {
+      //   validateBeforeSubmitting: true, // or false depending on your requirement
+      // }
+    });
 
     validator
       .addField('#basic_name', [
@@ -96,7 +102,25 @@
         console.log('Validation passes and form submitted', form);
         form.submit();
       });
-    ;
+
+    // Attach focusout event listeners to each input field
+    document.querySelector('#basic_name').addEventListener('focusout', (event) => {
+      validator.revalidateField('#basic_name');
+    });
+
+    document.querySelector('#basic_email').addEventListener('focusout', (event) => {
+      validator.revalidateField('#basic_email');
+    });
+
+    document.querySelector('#basic_password').addEventListener('focusout', (event) => {
+      validator.revalidateField('#basic_password');
+    });
+
+    document.querySelector('#basic_age').addEventListener('focusout', (event) => {
+      validator.revalidateField('#basic_age');
+    });
+});
+
   </script>
 </body>
 
