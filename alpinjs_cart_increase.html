@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine.js Counter Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+  <style>
+    /* Some basic styling for demonstration */
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+
+    .count {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div x-data="counter()" class="container">
+    <button @click="increment">Increment</button>
+    <button @click="decrement">Decrement</button>
+    <div class="count">Count: <span x-text="count"></span></div>
+  </div>
+
+
+  <p id="counterDisplay">Counter Value: </p>
+
+  <script>
+    function counter() {
+      return {
+        count: 0,
+        increment() {
+          this.count++;
+          document.getElementById('counterDisplay').innerText = this.count;
+        },
+        decrement() {
+          this.count--;
+          document.getElementById('counterDisplay').innerText = this.count; 
+        }
+      };
+    }
+
+  </script>
+</body>
+
+</html>

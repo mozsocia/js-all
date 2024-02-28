@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <div x-data="{ title: 'Hello' }" @set-title.window="title = $event.detail">
+        <h1 x-text="title"></h1>
+    </div>
+
+    <div x-data>
+        <button @click="$dispatch('set-title', 'Hello World!')">Click me</button>
+    </div>
+
+
+
+
+    <div x-data="{ 
+        hellolog(msg){
+            console.log(msg)
+        }
+    }" 
+    @call-fn.window="hellolog($event.detail)">
+        <h1> function</h1>
+    </div>
+
+    <div x-data>
+        <button @click="$dispatch('call-fn', 'Hello World!')">Click me</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List.js Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.css">
+</head>
+
+<body>
+
+  <div id="example-list">
+    <input class="search" placeholder="Search">
+    <button class="sort" data-sort="name">Sort by Name</button>
+    <button class="sort" data-sort="age">Sort by Age</button>
+
+    <div class="list">
+      <div>
+        <h3 class="name">John Doe</h3>
+        <p class="age">30</p>
+      </div>
+      <div>
+        <h3 class="name">Jane Smith</h3>
+        <p class="age">25</p>
+      </div>
+
+      <div>
+        <h3 class="name">John Doe</h3>
+        <p class="age">30</p>
+      </div>
+      <div>
+        <h3 class="name">Jane Smith</h3>
+        <p class="age">25</p>
+      </div>
+      <div>
+        <h3 class="name">Michael Johnson</h3>
+        <p class="age">35</p>
+      </div>
+      <div>
+        <h3 class="name">Emily Davis</h3>
+        <p class="age">28</p>
+      </div>
+      <div>
+        <h3 class="name">Chris Brown</h3>
+        <p class="age">40</p>
+      </div>
+      <div>
+        <h3 class="name">Sarah Wilson</h3>
+        <p class="age">22</p>
+      </div>
+      <div>
+        <h3 class="name">David Lee</h3>
+        <p class="age">33</p>
+      </div>
+      <div>
+        <h3 class="name">Michelle Martinez</h3>
+        <p class="age">31</p>
+      </div>
+      <div>
+        <h3 class="name">James Taylor</h3>
+        <p class="age">29</p>
+      </div>
+      <div>
+        <h3 class="name">Jennifer Clark</h3>
+        <p class="age">27</p>
+      </div>
+      <div>
+        <h3 class="name">Robert White</h3>
+        <p class="age">45</p>
+      </div>
+      <div>
+        <h3 class="name">Kimberly Harris</h3>
+        <p class="age">38</p>
+      </div>
+      <div>
+        <h3 class="name">William Moore</h3>
+        <p class="age">32</p>
+      </div>
+      <div>
+        <h3 class="name">Amanda Thompson</h3>
+        <p class="age">26</p>
+      </div>
+      <div>
+        <h3 class="name">Daniel Garcia</h3>
+        <p class="age">34</p>
+      </div>
+
+      <!-- More list items -->
+    </div>
+
+    <div class="pagination"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+  <script>
+    var options = {
+      valueNames: ['name', 'age'],
+      page: 5,
+      pagination: true
+    };
+
+    var exampleList = new List('example-list', options);
+  </script>
+
+</body>
+
+</html>
