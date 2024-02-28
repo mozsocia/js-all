@@ -49,17 +49,6 @@
 
 
 
-    <hr>
-    <hr>
-    <hr>
-
-    <div x-data="{ myMethod: () => console.log('Method triggered!') }" x-ref="myComponent">
-        <!-- Component code here -->
-        <button @click="myMethod">Trigger method from inside</button>
-    </div>
-    <br>
-    
-    <button @click="$refs.myComponent.myMethod()">Trigger method from outside</button>
 </body>
 
 </html>
